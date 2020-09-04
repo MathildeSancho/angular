@@ -1,0 +1,27 @@
+
+<mat-card class="vehicle-card">
+    <mat-card-header>
+      <mat-card-title>{{vehicle.brand}} - {{vehicle.model}}</mat-card-title>
+      <mat-card-subtitle>{{vehicle.price}}€</mat-card-subtitle>
+    </mat-card-header>
+    <div class="clickable vehicle-img" [style.background-image]="'url(' + vehicle.img + ')'" matTooltip="Click for details"
+    [routerLink]="['/vehicle/' + vehicle.id]"></div>
+    <mat-card-content>
+      <p>
+        {{vehicle.description}}
+      </p>
+    </mat-card-content>
+    <div class="btn-panier" style="width: 20px; margin-bottom: 20px;">
+        <mat-form-field>
+            <mat-select #cartSelect [value]="count">
+              <mat-option *ngFor="let n of numbers" [value]="n" >
+                {{n}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    <div class="btn-panier">
+      <button (click)="addToPanier(vehicle.id,cartSelect.value)" mat-raised-button color="primary"><mat-icon class="example-icon">shopping_cart</mat-icon></button>
+    </div>
+  </mat-card>
+ 

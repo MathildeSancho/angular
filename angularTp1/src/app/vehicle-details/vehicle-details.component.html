@@ -1,0 +1,14 @@
+<img class="img" [src]="vehicleDatas.img" routerLink="/cars">
+<table class ="right">
+  <tr *ngFor="let key of objectkeys(vehicleDatas) | vehicleKeys"> 
+    <td>
+        {{key}}
+    </td>
+    <td>
+      {{vehicleDatas[key]}}
+    </td>
+  </tr>
+ 
+</table>
+
+  

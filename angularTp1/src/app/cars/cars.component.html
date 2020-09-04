@@ -1,0 +1,8 @@
+<mat-grid-list cols="4">
+  <mat-grid-tile 
+      *ngFor="let vehicle of vehicles"
+      [colspan]="2"
+      [rowspan]="2">
+      <app-car [vehicle]="vehicle"></app-car>
+  </mat-grid-tile>
+  </mat-grid-list>  

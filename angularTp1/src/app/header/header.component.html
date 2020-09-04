@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Thales Shop</span>
+      <span class="example-spacer"></span>
+      <mat-icon routerLink="/cars" class="example-icon">time_to_leave</mat-icon>
+      <mat-icon  routerLink="/panier" class="header-icon clickable" routerLinkActive="active">shopping_cart</mat-icon>
+      <div *ngIf="count > 0" class="cart-annotation">{{count}}</div>
+      <mat-icon  class="example-icon" [matMenuTriggerFor]="menu">account_circle</mat-icon>
+      <mat-menu #menu="matMenu">
+          <button *ngIf="userIsConnected()" mat-menu-item routerLink="/user">History commands</button>
+          <button *ngIf="userIsConnected()" mat-menu-item (click)="disconnectUser()">Log out</button>
+          <button *ngIf="!userIsConnected()" mat-menu-item (click)="openDialog()">Log in</button>
+      </mat-menu>
+     
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

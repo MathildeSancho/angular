@@ -1,0 +1,20 @@
+.vehicle-card {
+  width: 320px;
+  padding: 10px;
+  background-color: #e0e0e06e;
+  box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, .2);
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+.btn-panier{
+  text-align: right;
+  height: 39px;
+}
+.vehicle-img {
+  background-size: cover;
+  height: 180px;
+
+}

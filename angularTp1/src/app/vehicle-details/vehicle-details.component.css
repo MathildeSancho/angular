@@ -1,0 +1,10 @@
+.img {
+    float: left;
+    height: 50%;
+    width: 50%;
+    margin-top: 0
+}
+
+.right{
+    float: right;
+}

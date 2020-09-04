@@ -1,0 +1,38 @@
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+.icon{
+    background: transparent;
+}
+.cart-annotation {
+  display: block;
+  height: 15px;
+  width: 15px;
+  line-height: 15px;
+  -moz-border-radius: 30px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  position: relative;
+  right: 11px;
+  top: -10px;
+  pointer-events: none;
+
+}
+
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+ 
+.full-width {
+  width: 100%;
+}

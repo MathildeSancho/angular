@@ -1,0 +1,34 @@
+<table class ="right" id="customers">
+    <tr>
+        <th></th>
+        <th>Brand - Model</th>
+        <th>Price (EU)</th>
+        <th>Quantity</th>
+        <th>Delete</th>
+      </tr>
+  <tr *ngFor="let v of panier"> 
+    <td>
+        <img class="img" [src]="v.img" style="width:150px; height:100px">
+    </td>
+    <td>
+        {{v.brand}} - {{v.model}}
+    </td>
+    <td>
+      {{v.price}} €
+    </td>
+    <td>
+        {{v.count}}
+    </td>
+    <td>
+      <button (click)="delete(v.id)">
+      <i class="material-icons orange600">delete</i>
+    </button>
+  </td>
+  </tr>
+</table>
+<p>
+  TOTAL : {{total}} €
+</p>
+<div class="footer">
+    <button mat-raised-button [disabled]="panier.length===0" (click)="addCommand()">Acheter</button>
+</div>

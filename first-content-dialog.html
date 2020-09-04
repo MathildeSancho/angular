@@ -1,0 +1,93 @@
+<div *ngIf="showFirst">
+  <mat-dialog-content>
+    <p>Choose Register if you don't have an account</p>
+  </mat-dialog-content>
+  <button mat-button (click)="showRegister()" color="primary">Register</button>
+  <button mat-button (click)="showloginInPage()" cdkFocusInitial color="primary">Login</button>
+
+  <!--mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Register</button>
+  </mat-dialog-actions-->
+</div>
+<div *ngIf=!showFirst>
+  <div *ngIf="showLogin; else elseBlock">
+    <mat-dialog-content>
+      <mat-toolbar>
+        <span>LOGIN</span>
+      </mat-toolbar>
+      <mat-card class="my-card">
+        <mat-card-content>
+          <form class="my-form">
+            <mat-form-field class="full-width">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" name="username">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" name="password">
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="login(username,password)" color="primary" mat-dialog-close>LOGIN</button>
+        </mat-dialog-actions>
+      </mat-card>
+    </mat-dialog-content>
+  </div>
+  <ng-template #elseBlock>
+    <mat-toolbar>
+      <span>Registration</span>
+    </mat-toolbar>
+    <mat-card class="my-card">
+      <mat-card-content>
+
+        <form [formGroup]="RegisterForm" #formDir="ngForm">
+
+          <div [hidden]="formDir.submitted">
+
+            <form class="my-form">
+              <mat-form-field class="full-width">
+                <mat-label for="username">Username</mat-label>
+                <input matInput placeholder="First name" id="username" required>
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                  <div *ngIf="username.errors.required">
+                    Name is required.
+                  </div>
+                  <div *ngIf="username.errors.minlength">
+                    Name must be at least 4 characters long.
+                  </div>
+                </div>
+          </div>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label for="password">Password</mat-label>
+            <input matInput placeholder="Password" id="password" required>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+              <div *ngIf="password.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="password.errors.minlength">
+                Name must be at least 4 characters long.
+              </div>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label for="cpass">Confirmation Password</mat-label>
+            <input matInput placeholder="Confirm your password" id="cpass" class="form-control"
+              formControlName="alterEgo">
+
+            <div *ngIf="cpass.invalid" class="alert alert-danger alter-ego-errors">
+              <div *ngIf="cpass.value != password.value">
+                Passwords didn't match.
+              </div>
+            </div>
+          </mat-form-field>
+        </form>
+        </form>
+      </mat-card-content>
+      <mat-dialog-actions>
+        <button mat-raised-button (click)="register()" color="primary" mat-dialog-close>REGISTER</button>
+      </mat-dialog-actions>
+    </mat-card>
+  </ng-template>
+</div>
